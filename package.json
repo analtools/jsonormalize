@@ -44,7 +44,7 @@
   },
   "homepage": "https://github.com/analtools/jsonormalize#readme",
   "bin": {
-    "json-to-drizzle": "./bin/run.js"
+    "jsonormalize": "./bin/run.js"
   },
   "main": "dist/src/index.js",
   "type": "commonjs",
