@@ -9,7 +9,7 @@
 [![Drizzle](https://img.shields.io/badge/Drizzle-1E88E5?style=for-the-badge&logo=drizzle&logoColor=white)](https://orm.drizzle.team/)
 [![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)](https://nodejs.org/)
 [![GitHub last commit](https://img.shields.io/github/last-commit/MrCheater/jsonormalize?style=for-the-badge&logo=git)](https://github.com/MrCheater/jsonormalize/commits/main)
-[![GitHub repo size](https://img.shields.io/github/repo-size/MrCheater/jsonormalize?style=for-the-badge&logo=github)](https://github.com/MrCheater/jsonormalize)
+[![GitHub repo size](https://img.shields.io/github/repo-size/analtools/jsonormalize?style=for-the-badge&logo=github)](https://github.com/analtools/jsonormalize)
 
 ## 🚀 Description
 
