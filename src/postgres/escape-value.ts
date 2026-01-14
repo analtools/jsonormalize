@@ -6,7 +6,7 @@ export function escapeValue(value: NormalizedValue | undefined): string {
   }
   switch (typeof value) {
     case "boolean": {
-      return value ? 'TRUE' : 'FALSE'
+      return value ? "TRUE" : "FALSE";
     }
     case "string": {
       return `'${String(value).replace(/(')/gi, "$1$1")}'`;
@@ -16,4 +16,3 @@ export function escapeValue(value: NormalizedValue | undefined): string {
     }
   }
 }
-
