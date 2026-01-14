@@ -4,7 +4,7 @@
 [![GitHub forks](https://img.shields.io/github/forks/MrCheater/jsonormalize?style=for-the-badge&logo=github)](https://github.com/MrCheater/jsonormalize/network)
 [![GitHub issues](https://img.shields.io/github/issues/MrCheater/jsonormalize?style=for-the-badge&logo=github)](https://github.com/MrCheater/jsonormalize/issues)
 [![GitHub license](https://img.shields.io/github/license/MrCheater/jsonormalize?style=for-the-badge)](https://github.com/MrCheater/jsonormalize/blob/main/LICENSE)
-[![Test Coverage](https://raw.githubusercontent.com/MrCheater/jsonormalize/gh-pages/badge.svg)](https://mrcheater.github.io/jsonormalize/)
+[![Test Coverage](https://raw.githubusercontent.com/analtools/jsonormalize/gh-pages/badge.svg)](https://analtools.github.io/jsonormalize/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![Drizzle](https://img.shields.io/badge/Drizzle-1E88E5?style=for-the-badge&logo=drizzle&logoColor=white)](https://orm.drizzle.team/)
 [![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)](https://nodejs.org/)
