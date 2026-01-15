@@ -1,18 +1,13 @@
 import { setupTables } from "../../sqlite";
+import { commands, optionalArgs, requiredArgs } from "../constants";
 import { prepare } from "../prepare";
 import { program } from "../program";
 
 program
-  .command("sqlite:setup")
-  .description("🗄️ Setup tables, indexes and seed with data from JSON")
-  .argument(
-    "<json-path>",
-    "Path to JSON file with any data (table structure will be inferred)",
-  )
-  .argument(
-    "<db-path>",
-    "Path to SQLite database file or ':memory:' (no file, RAM only)",
-  )
+  .command(commands.setup.name("sqlite"))
+  .description(commands.setup.description)
+  .argument(requiredArgs.jsonPath.name, requiredArgs.jsonPath.description)
+  .argument(optionalArgs.dbPath.name, optionalArgs.dbPath.description)
   .action(setup);
 
 export async function setup(jsonPath: string, dbPath: string) {
