@@ -1,6 +1,6 @@
 {
   "name": "@analtools/jsonormalize",
-  "version": "0.0.4",
+  "version": "0.0.6",
   "description": "JSONormalize — Transform any JSON into a relational database schema. Automatically normalizes nested structures, detects relationships, and generates SQLite migrations. Perfect for rapid prototyping, data migrations, and structured data workflows.",
   "keywords": [
     "json-normalize",
@@ -44,7 +44,7 @@
   },
   "homepage": "https://github.com/analtools/jsonormalize#readme",
   "bin": {
-    "json-to-drizzle": "./bin/run.js"
+    "jsonormalize": "./bin/run.js"
   },
   "main": "dist/src/index.js",
   "type": "commonjs",
@@ -55,6 +55,7 @@
     "@types/better-sqlite3": "^7.6.13",
     "@types/node": "^24.1.0",
     "@types/node-fetch": "^2.6.13",
+    "@types/pg": "^8.16.0",
     "@vitest/coverage-v8": "^4.0.16",
     "coverage-badges-cli": "^2.2.0",
     "eslint": "^9.39.2",
@@ -70,6 +71,8 @@
   },
   "dependencies": {
     "better-sqlite3": "^12.5.0",
+    "@electric-sql/pglite": "^0.3.14",
+    "pg": "^8.16.3",
     "commander": "^14.0.2",
     "node-fetch": "2.7.0"
   },

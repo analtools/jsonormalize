@@ -1,13 +1,13 @@
 import * as fs from "node:fs";
 import { EOL } from "node:os";
 
-import { createMigrations } from "../../sqlite";
+import { createMigrations } from "../../postgres";
 import { commands, requiredArgs } from "../constants";
 import { prepare } from "../prepare";
 import { program } from "../program";
 
 program
-  .command(commands.sql.name("sqlite"))
+  .command(commands.sql.name("postgres"))
   .description(commands.sql.description)
   .argument(requiredArgs.jsonPath.name, requiredArgs.jsonPath.description)
   .argument(requiredArgs.sqlPath.name, requiredArgs.sqlPath.description)
