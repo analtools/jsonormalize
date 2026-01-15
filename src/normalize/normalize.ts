@@ -5,9 +5,7 @@ import { normalizeDictionaries } from "./normalize-dictionaries";
 import { normalizeLocalization } from "./normalize-localization";
 import type { NormalizedData } from "./types";
 
-export function normalize(
-  data: unknown[] | Record<string, any>,
-): NormalizedData {
+export function normalize(data: unknown): NormalizedData {
   return normalizeDictionaries(
     /* replace {a:{b:'c'}} to {'a_b':'c'} */
     normalizeDeepObjects(

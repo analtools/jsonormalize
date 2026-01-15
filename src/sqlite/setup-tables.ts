@@ -9,7 +9,7 @@ export function setupTables({
 }: {
   path?: string;
   prefix: string;
-  data: unknown[];
+  data: unknown;
 }) {
   const { initialMigration, dataMigration } = createMigrations({
     prefix,

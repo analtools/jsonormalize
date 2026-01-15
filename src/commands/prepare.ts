@@ -19,8 +19,7 @@ async function getRawData(jsonPath: string): Promise<unknown> {
 }
 
 export async function prepare(jsonPath: string) {
-  const rawData = await getRawData(jsonPath);
-  const data: unknown[] = Array.isArray(rawData) ? rawData : [rawData];
+  const data = await getRawData(jsonPath);
 
   const jsonPathNameWithoutExt = path.basename(
     jsonPath,
