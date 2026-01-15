@@ -49,12 +49,20 @@ Check out the examples/ directory for ready-to-use JSON samples:
 
 ## 📦 Installation
 
+Add an `.npmrc` file to your project:
+
+```
+@analtools:registry=https://npm.pkg.github.com
+```
+
+Then run one of the following commands:
+
 ```sh
-npm install jsonormalize
+npm install @analtools/jsonormalize
 # or
-yarn add jsonormalize
+yarn add @analtools/jsonormalize
 # or
-pnpm add jsonormalize
+pnpm add @analtools/jsonormalize
 ```
 
 ## 🚀 Quick Start

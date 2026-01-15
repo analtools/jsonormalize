@@ -98,7 +98,7 @@ export async function setup(
     clientEncoding?: string;
     fallbackApplicationName?: string;
     options?: string;
-  },
+  } = {},
 ) {
   const config: ClientConfig | undefined =
     dbPath === undefined && Object.keys(options).length

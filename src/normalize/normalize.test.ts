@@ -3,6 +3,83 @@ import { describe, expect, it } from "vitest";
 import { normalize } from "./normalize";
 
 describe("normalize", () => {
+  it("should normalize dictionary", () => {
+    expect(
+      normalize({
+        a: "A",
+        b: "B",
+        c: null,
+      }),
+    ).toEqual([
+      { key: "a", value: "A" },
+      { key: "b", value: "B" },
+      { key: "c", value: null },
+    ]);
+
+    expect(
+      normalize({
+        a: 1,
+        b: null,
+        c: 3,
+      }),
+    ).toEqual([
+      { key: "a", value: 1 },
+      { key: "b", value: null },
+      { key: "c", value: 3 },
+    ]);
+
+    expect(
+      normalize({
+        a: null,
+        b: true,
+        c: false,
+      }),
+    ).toEqual([
+      { key: "a", value: null },
+      { key: "b", value: true },
+      { key: "c", value: false },
+    ]);
+
+    expect(
+      normalize({
+        a: 1,
+        b: "B",
+        c: true,
+        d: null,
+      }),
+    ).toEqual([
+      { key: "a", value_number: 1, value_string: null, value_boolean: null },
+      { key: "b", value_number: null, value_string: "B", value_boolean: null },
+      { key: "c", value_number: null, value_string: null, value_boolean: true },
+      { key: "d", value_number: null, value_string: null, value_boolean: null },
+    ]);
+
+    expect(
+      normalize({
+        obj: {
+          sub: {
+            a: 1,
+            b: 2,
+            c: 3,
+          },
+        },
+      }),
+    ).toEqual([
+      {
+        key: "obj_sub_a",
+        value: 1,
+      },
+      {
+        key: "obj_sub_b",
+        value: 2,
+      },
+      {
+        key: "obj_sub_c",
+        value: 3,
+      },
+    ]);
+  });
+
   it("should flatten nested objects with localization and arrays", () => {
     expect(
       normalize([
