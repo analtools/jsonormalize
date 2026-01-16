@@ -1,8 +1,9 @@
-import Database from "better-sqlite3";
+import { Database } from "sqlite3";
+import { promisify } from "util";
 
 import { createMigrations } from "./create-migrations";
 
-export function setupTables({
+export async function setupTables({
   path = ":memory:",
   prefix,
   data,
@@ -18,11 +19,12 @@ export function setupTables({
 
   const db = new Database(path);
 
-  db.pragma("synchronous = FULL");
+  const exec = promisify(db.exec).bind(db);
+  const close = promisify(db.close).bind(db);
 
-  db.exec(initialMigration);
+  await exec(initialMigration);
 
-  db.exec(dataMigration);
+  await exec(dataMigration);
 
-  db.close();
+  await close();
 }

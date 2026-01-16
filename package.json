@@ -1,6 +1,6 @@
 {
   "name": "@analtools/jsonormalize",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "description": "JSONormalize — Transform any JSON into a relational database schema. Automatically normalizes nested structures, detects relationships, and generates SQLite migrations. Perfect for rapid prototyping, data migrations, and structured data workflows.",
   "keywords": [
     "json-normalize",
@@ -71,7 +71,7 @@
     "vitest": "^4.0.16"
   },
   "dependencies": {
-    "better-sqlite3": "^12.5.0",
+    "sqlite3": "^5.1.7",
     "@electric-sql/pglite": "^0.3.14",
     "pg": "^8.16.3",
     "commander": "^14.0.2",

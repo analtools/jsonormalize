@@ -13,7 +13,7 @@ program
 export async function setup(jsonPath: string, dbPath: string) {
   const { data, prefix } = await prepare(jsonPath);
 
-  setupTables({
+  await setupTables({
     path: dbPath,
     data,
     prefix,
