@@ -12,7 +12,7 @@ export async function setupTables({
   config?: ClientConfig;
   path?: string;
   prefix: string;
-  data: unknown[];
+  data: unknown;
 }) {
   const { initialMigration, dataMigration } = createMigrations({
     prefix,

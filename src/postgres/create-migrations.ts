@@ -8,7 +8,7 @@ export function createMigrations({
   data,
 }: {
   prefix: string;
-  data: unknown[];
+  data: unknown;
 }) {
   const tables = createRelationalStructure(prefix, normalize(data));
 
