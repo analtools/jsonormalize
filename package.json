@@ -1,6 +1,6 @@
 {
   "name": "@analtools/jsonormalize",
-  "version": "0.0.11",
+  "version": "0.0.12",
   "description": "JSONormalize — Transform any JSON into a relational database schema. Automatically normalizes nested structures, detects relationships, and generates SQLite migrations. Perfect for rapid prototyping, data migrations, and structured data workflows.",
   "keywords": [
     "json-normalize",
@@ -78,7 +78,6 @@
     "node-fetch": "2.7.0"
   },
   "scripts": {
-    "postinstall": "npm run build",
     "prettier:check": "prettier '**/*.{svg,yml,js,jsx,ts,tsx,html,md,css,json}' --check",
     "prettier": "prettier '**/*.{svg,yml,js,jsx,ts,tsx,html,md,css,json}' --write",
     "lint": "eslint --quiet .",
