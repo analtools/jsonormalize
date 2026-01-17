@@ -1,7 +1,9 @@
 import { Command } from "commander";
 
-import { description } from "../../package.json";
-
 export const program = new Command();
 
-program.name("jsonormalize").description(description);
+program
+  .name("jsonormalize")
+  .description(
+    `JSONormalize — Transform any JSON into a relational database schema. Automatically normalizes nested structures, detects relationships, and generates SQLite migrations. Perfect for rapid prototyping, data migrations, and structured data workflows.`,
+  );
