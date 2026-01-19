@@ -11,6 +11,7 @@ export async function setupTables({
   path?: string;
   prefix: string;
   data: unknown;
+  schemaName?: string | undefined;
 }) {
   const { initialMigration, dataMigration } = createMigrations({
     prefix,

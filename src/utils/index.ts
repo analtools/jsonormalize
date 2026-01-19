@@ -1,3 +1,4 @@
+export * from "./get-full-table-name";
 export * from "./is-array-of-arrays";
 export * from "./is-array-of-primitives";
 export * from "./is-dictionary";

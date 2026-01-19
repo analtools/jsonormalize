@@ -8,15 +8,18 @@ export async function setupTables({
   path,
   prefix,
   data,
+  schemaName,
 }: {
   config?: ClientConfig;
   path?: string;
   prefix: string;
   data: unknown;
+  schemaName?: string | undefined;
 }) {
   const { initialMigration, dataMigration } = createMigrations({
     prefix,
     data,
+    schemaName,
   });
 
   if (config) {

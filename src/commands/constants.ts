@@ -1,3 +1,5 @@
+export const description = `JSONormalize — Transform any JSON into a relational database schema. Automatically normalizes nested structures, detects relationships, and generates SQLite migrations. Perfect for rapid prototyping, data migrations, and structured data workflows.`;
+
 export const requiredArgs = {
   jsonPath: {
     name: "<json-path>",
@@ -23,6 +25,13 @@ export const optionalArgs = Object.fromEntries(
       : (typeof requiredArgs)[K]["name"];
     description: (typeof requiredArgs)[K]["description"];
   };
+};
+
+export const options = {
+  schema: {
+    name: "--schema <schema>",
+    description: "The name of the database schema",
+  },
 };
 
 export const commands = {

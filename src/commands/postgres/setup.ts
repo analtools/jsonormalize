@@ -1,7 +1,7 @@
 import type { ClientConfig } from "pg";
 
 import { setupTables } from "../../postgres";
-import { commands, optionalArgs, requiredArgs } from "../constants";
+import { commands, optionalArgs, options, requiredArgs } from "../constants";
 import { prepare } from "../prepare";
 import { program } from "../program";
 
@@ -10,6 +10,7 @@ program
   .description(commands.setup.description)
   .argument(requiredArgs.jsonPath.name, requiredArgs.jsonPath.description)
   .argument(optionalArgs.dbPath.name, optionalArgs.dbPath.description)
+  .option(options.schema.name, options.schema.description)
   .option("--user <user>", "default process.env.PGUSER || process.env.USER")
   .option("--password <password>", "default process.env.PGPASSWORD")
   .option("--host <host>", "default process.env.PGHOST")
@@ -63,7 +64,9 @@ program
     "--options <options>",
     "command-line options to be sent to the server",
   )
-  .action(setup);
+  .action((...args: Parameters<typeof parseArgs>) =>
+    setup(...parseArgs(...args)),
+  );
 
 function getNumberOption(value: string | undefined): number | undefined {
   return value === undefined ? undefined : Number(value);
@@ -77,7 +80,7 @@ function getSslOption(value: any): ClientConfig["ssl"] {
   }
 }
 
-export async function setup(
+function parseArgs(
   jsonPath: string,
   dbPath: string | undefined,
   options: {
@@ -98,8 +101,11 @@ export async function setup(
     clientEncoding?: string;
     fallbackApplicationName?: string;
     options?: string;
+    schema?: string;
   } = {},
-) {
+): Parameters<typeof setup> {
+  const schemaName = options.schema;
+
   const config: ClientConfig | undefined =
     dbPath === undefined && Object.keys(options).length
       ? {
@@ -129,6 +135,20 @@ export async function setup(
         }
       : undefined;
 
+  return [{ jsonPath, dbPath, config, schemaName }];
+}
+
+export async function setup({
+  config,
+  dbPath,
+  jsonPath,
+  schemaName,
+}: {
+  jsonPath: string;
+  dbPath?: string | undefined;
+  config?: ClientConfig | undefined;
+  schemaName?: string | undefined;
+}) {
   const { data, prefix } = await prepare(jsonPath);
 
   await setupTables({
@@ -136,5 +156,6 @@ export async function setup(
     path: dbPath,
     data,
     prefix,
+    schemaName,
   });
 }
