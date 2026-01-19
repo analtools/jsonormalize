@@ -2,14 +2,21 @@ import { EOL } from "node:os";
 
 import type { RelationalTable } from "../create-relational-structure";
 import { getForeignKeys, getPrimaryKeys } from "../create-relational-structure";
+import { getFullTableName } from "../utils";
 import { getFieldType } from "./get-field-type";
 
-export function createInitialMigration(tables: RelationalTable[]): string {
+export function createInitialMigration({
+  tables,
+  schemaName,
+}: {
+  tables: RelationalTable[];
+  schemaName?: string | undefined;
+}): string {
   return tables
     .map((table) => {
       const foreignKeys = getForeignKeys(table);
       return [
-        `CREATE TABLE ${table.name} (`,
+        `CREATE TABLE ${getFullTableName({ tableName: table.name, schemaName })} (`,
         [
           ...table.fields.map(
             (field) =>

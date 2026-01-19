@@ -1,2 +1,2 @@
-export { setup } from "./setup";
-export { sql } from "./sql";
+export * from "./setup";
+export * from "./sql";
