@@ -34,7 +34,7 @@
   ],
   "publishConfig": {
     "registry": "https://npm.pkg.github.com",
-    "access": "publics"
+    "access": "public"
   },
   "repository": {
     "type": "git",
