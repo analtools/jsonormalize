@@ -26,14 +26,17 @@ export function createInitialMigration({
           ...(foreignKeys.length
             ? foreignKeys.map(
                 ({ key, reference }) =>
-                  `  FOREIGN KEY (${key}) REFERENCES ${reference.table} (${reference.key})`,
+                  `  FOREIGN KEY (${key}) REFERENCES ${getFullTableName({ tableName: reference.table, schemaName })} (${reference.key})`,
               )
             : []),
         ].join(`,${EOL}`),
         `);`,
         ...foreignKeys.map(
           ({ key }) =>
-            `CREATE INDEX idx_${table.name}_${key} ON ${table.name} (${key});`,
+            `CREATE INDEX idx_${table.name}_${key} ON ${getFullTableName({
+              tableName: table.name,
+              schemaName,
+            })} (${key});`,
         ),
       ].join(EOL);
     })
